@@ -1,3 +1,4 @@
+import Comments from "@/models/comment";
 import UserAmlak from "@/models/user";
 import ConnectDB from "@/utils/connectDB";
 import { hashPassword } from "@/utils/nextPass";
@@ -6,10 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     await ConnectDB();
-
     const { email, password } = await req.json();
-    console.log(email, password);
-
     if (!email || !password) {
       return NextResponse.json({
         error: "اطلاعات درست را وارد کنید",
@@ -22,6 +20,7 @@ export async function POST(req) {
     if (existedUser) {
       return NextResponse.json({ error: "این کاربر وجود دارد", status: 422 });
     }
+
     const newUser = await UserAmlak.create({
       email: email,
       password: hashPass,

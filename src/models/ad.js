@@ -4,6 +4,7 @@ import UserAmlak from "./user";
 const adSchema = new Schema(
   {
     title: { type: String, required: true },
+    picUrl: { type: [String], default: [] },
     description: { type: String, required: true },
     location: { type: String, required: true },
     phone: { type: String, required: true },
@@ -16,6 +17,9 @@ const adSchema = new Schema(
     },
     rules: { type: [String], default: [] },
     options: { type: [String], default: [] },
+    pic: { type: [Buffer], default: [] },
+    name: { type: String, require: false },
+    published: { type: Boolean, default: false },
     userId: { type: Schema.Types.ObjectId, ref: UserAmlak },
   },
   { timestamps: true },

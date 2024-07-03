@@ -7,7 +7,7 @@ async function layout({ children }) {
   const session = await getServerSession(authOptions);
   if (!session) redirect("/sign-in");
   return (
-    <div className="mx-5">
+    <div className="mx-5 ">
       <DashbordSidebar>{children}</DashbordSidebar>
     </div>
   );

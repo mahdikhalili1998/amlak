@@ -7,7 +7,7 @@ import { Flip, Slide, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { ThreeDots} from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -46,7 +46,6 @@ function SignupPage() {
     await axios
       .post("/api/auth/signup", { email, password })
       .then((res) => {
-        console.log(res);
         {
           res.data.status === 201 ? router.push("/sign-in") : null;
         }
@@ -77,10 +76,10 @@ function SignupPage() {
     <>
       <form
         onSubmit={submitHandler}
-        className="mx-auto flex w-max flex-col items-center gap-8 rounded-lg border-2 border-blue-600 px-12 py-8 shadow-2xl"
+        className="mx-auto flex flex-col items-center gap-8 rounded-lg border-2 border-blue-600 py-8 shadow-2xl"
       >
-        <h1 className="text-xl font-medium">ساخت حساب کاربری</h1>
-        <div className="flex flex-col items-center justify-center">
+        <h1 className="w-max text-lg font-medium">ساخت حساب کاربری</h1>
+        <div className="flex flex-col items-center justify-center text-sm">
           <Input
             name="email"
             value={userInfo.email}
@@ -124,7 +123,7 @@ function SignupPage() {
             </button>
           )}
 
-          <p className="text-sm font-medium">
+          <p className="px-3 text-sm font-medium">
             حساب کاربری دارید ؟{" "}
             <Link className="text-blue-600" href="/sign-in">
               وارد حساب خود شوید{" "}

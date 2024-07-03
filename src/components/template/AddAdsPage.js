@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextInput from "../module/TextInput";
 import { p2e } from "@/utils/replaceNumber";
 import RadioList from "../module/RadioList";
@@ -15,8 +15,9 @@ import DatePickers from "../module/DatePicker";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { ThreeDots } from "react-loader-spinner";
+import Upload from "../module/UploadPicDD";
 
-function AddAdsPage() {
+function AddAdsPage({ data }) {
   const [adInfo, setAdInfo] = useState({
     title: "",
     description: "",
@@ -24,11 +25,19 @@ function AddAdsPage() {
     phone: "",
     price: "",
     realState: "",
+    picUrl: [],
     constractionDate: new Date(),
     category: "",
     rules: [],
     options: [],
   });
+
+  // console.log(adInfo);
+  useEffect(() => {
+    {
+      data ? setAdInfo(data) : null;
+    }
+  }, []);
 
   const [loading, setLoading] = useState(false);
 
@@ -36,6 +45,7 @@ function AddAdsPage() {
 
   const {
     title,
+    picUrl,
     description,
     location,
     phone,
@@ -48,10 +58,12 @@ function AddAdsPage() {
   } = adInfo;
 
   const [editRules, setEditRules] = useState({});
+
   const [saveEdit, setSaveEdite] = useState("");
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
+
     setAdInfo({ ...adInfo, [name]: p2e(value) });
   };
 
@@ -63,6 +75,20 @@ function AddAdsPage() {
   const editHandler = (index, string) => {
     setEditRules({ index, string });
     setSaveEdite(adInfo[string][index]);
+  };
+
+  const editesHandler = async (id) => {
+    console.log(id);
+    setLoading(true);
+    await axios
+      .patch("/api/add-ad", { adInfo, id })
+      .then((res) =>
+        res.status === 200
+          ? (router.replace("/dashbord/my-ads"), router.refresh())
+          : null,
+      )
+      .catch((error) => console.log(error));
+    setLoading(false);
   };
 
   const saveHandler = (index, string) => {
@@ -87,6 +113,7 @@ function AddAdsPage() {
         constractionDate,
         category,
         rules,
+        picUrl,
         options,
       })
       .then((res) => {
@@ -100,6 +127,7 @@ function AddAdsPage() {
       })
       .catch((error) => {
         if (error) {
+          console.log(error);
           toast.error(error.response.data.error, {
             position: "top-center",
             transition: Flip,
@@ -109,12 +137,16 @@ function AddAdsPage() {
     setLoading(false);
   };
 
+  // console.log(adInfo);
   return (
-    <div>
-      <h1 className="mb-10 w-full rounded-lg bg-blue-200 px-3 py-2 text-center text-xl font-semibold text-blue-800">
-        ثبت آگهی{" "}
+    <div className={`text-sm`}>
+      <h1 className="mb-10 w-full rounded-lg bg-blue-200 py-2 text-center text-lg font-semibold text-blue-800">
+        {data ? "ویرایش آگهی" : "ثبت آگهی"}
       </h1>
-      <div className="space-y-6">
+
+      <div className="flex flex-col items-center justify-center gap-10">
+        <Upload adInfo={adInfo} setAdInfo={setAdInfo} />
+
         <TextInput
           type="text"
           label="عنوان"
@@ -160,8 +192,8 @@ function AddAdsPage() {
         />
 
         <div className="space-y-3">
-          <h1 className="text-base font-semibold">دسته بندی : </h1>
-          <div className="flex items-center justify-between">
+          <h1 className="text-center text-base font-semibold">دسته بندی : </h1>
+          <div className="grid grid-cols-2 gap-2">
             <RadioList
               name="villa"
               label="ویلا"
@@ -287,7 +319,7 @@ function AddAdsPage() {
         <ToastContainer />
 
         {loading ? (
-          <div className="mx-auto w-max ">
+          <div className="mx-auto w-max">
             {" "}
             <ThreeDots
               visible={true}
@@ -300,9 +332,17 @@ function AddAdsPage() {
               wrapperClass=""
             />
           </div>
+        ) : null}
+        {data ? (
+          <button
+            className="w-full rounded-xl bg-blue-600 py-1 text-lg text-white"
+            onClick={(e) => editesHandler(data._id)}
+          >
+            ویرایش آگهی
+          </button>
         ) : (
           <button
-            className="mx-auto w-full rounded-xl bg-blue-600 px-2 py-1 text-2xl text-white"
+            className="w-full rounded-xl bg-blue-600 py-1 text-lg text-white"
             onClick={submitHandler}
           >
             ثبت آگهی{" "}

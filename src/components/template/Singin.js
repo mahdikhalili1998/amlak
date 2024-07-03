@@ -39,7 +39,7 @@ function SigninPage() {
     } else {
       router.push("/");
     }
-    console.log(res);
+  
     setLoading(false);
   };
 
@@ -47,7 +47,7 @@ function SigninPage() {
     <>
       <form
         onSubmit={submitHandler}
-        className="mx-auto flex w-max flex-col items-center gap-8 rounded-lg border-2 border-blue-600 px-12 py-8 shadow-2xl"
+        className="mx-auto flex w-max flex-col items-center gap-8 rounded-lg border-2 border-blue-600 px-2 py-8 shadow-2xl"
       >
         <h1 className="text-xl font-medium">ورود به حساب کاربری</h1>
         <div className="flex flex-col items-center justify-center">

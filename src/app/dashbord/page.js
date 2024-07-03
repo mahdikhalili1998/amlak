@@ -10,7 +10,7 @@ async function Dashbord() {
   const user = await UserAmlak.findOne({ email: session.user.email });
   return (
     <div>
-      <DashbordPage time={user.createAt} />
+      <DashbordPage time={user?.createAt} />
     </div>
   );
 }

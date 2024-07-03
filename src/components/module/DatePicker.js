@@ -8,7 +8,7 @@ function DatePickers({ adInfo, setAdInfo }) {
     setAdInfo({ ...adInfo, constractionDate: new Date(e) });
   };
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex flex-col items-center gap-3">
       <h2>تاریخ ساخت : </h2>
       <DatePicker
         animations={[size()]}

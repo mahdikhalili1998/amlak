@@ -9,8 +9,8 @@ function TextInput({
   textArea = false,
 }) {
   return (
-    <div className="flex items-center gap-3">
-      <label className="text-base font-semibold" htmlFor={name}>
+    <div className="flex flex-col  items-center gap-3">
+      <label className="text-sm font-semibold" htmlFor={name}>
         {label} :
       </label>
       {textArea ? (

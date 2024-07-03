@@ -13,6 +13,7 @@ module.exports = {
       gridTemplateColumns: {
         sebyek: "1fr 3fr",
       },
+      screens: { tabletz: "350px", 450: "450px", 650: "650px", 800: "800px" },
     },
   },
   plugins: [],
