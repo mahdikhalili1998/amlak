@@ -2,7 +2,7 @@ import "./globals.css";
 import "../iransans.css";
 import Layout from "@/components/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuthProvider";
-import { FcHome } from "react-icons/fc";
+
 
 export const metadata = {
   title: "خرید و فروش ملک",
