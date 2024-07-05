@@ -123,6 +123,7 @@ function AddAdsPage({ data }) {
             transition: Flip,
           });
           router.push("/dashbord");
+          // router.refresh("/dashbord");
         }
       })
       .catch((error) => {

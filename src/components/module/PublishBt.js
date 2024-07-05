@@ -7,10 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 function PublishBt({ id }) {
   const router = useRouter();
-  
+
   const publishHandler = async () => {
     await axios
-      .patch(`/api/publish/${id}`, )
+      .patch(`/api/publish/${id}`)
       .then((res) => {
         res.status === 200
           ? (toast.success("آگهی منتشر شد", {
@@ -22,7 +22,14 @@ function PublishBt({ id }) {
       })
       .catch((error) => console.log(error));
   };
-  const deleteHandler = async () => {};
+  const deleteHandler = async () => {
+    await axios
+      .delete(`/api/publish/${id}`)
+      .then((res) => {
+        res.status === 202 ? router.refresh() : null;
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="flex items-center justify-center gap-2">
       <button

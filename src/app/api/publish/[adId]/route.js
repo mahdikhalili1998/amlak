@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function PATCH(req, context) {
   try {
     await ConnectDB();
-    const id = context.params.adId ;
+    const id = context.params.adId;
     const session = await getServerSession(req);
     if (!session) {
       return NextResponse.json(
@@ -33,6 +33,20 @@ export async function PATCH(req, context) {
     console.log(error);
     return NextResponse.json(
       { error: "در ارتباط با سرور مشکلی پیش آمده است" },
+      { status: 500 },
+    );
+  }
+}
+export async function DELETE(req, context) {
+  try {
+    await ConnectDB();
+    const id = context.params.adId;
+    const ad = await AD.deleteOne({ _id: id });
+    return NextResponse.json({ message: "ok" }, { status: 202 });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { message: "مشکلی در سمت سرور پیش  آمده است " },
       { status: 500 },
     );
   }

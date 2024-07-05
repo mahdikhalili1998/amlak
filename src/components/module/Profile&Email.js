@@ -13,7 +13,9 @@ function Profile({ email, role }) {
         <FaUserCircle className="text-[3rem] text-blue-600" />
         <span className="pb-1">{email}</span>
         {role === "ADMIN" ? (
-          <span className="-mt-2 mb-3 text-xs font-medium">ادمین</span>
+          <span className="-mt-2 mb-3 rounded-lg bg-red-200 px-2 py-1 text-xs font-medium text-red-800">
+            ادمین
+          </span>
         ) : null}
       </div>
 

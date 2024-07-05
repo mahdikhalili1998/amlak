@@ -28,6 +28,11 @@ export async function PATCH(req, context) {
     await ConnectDB();
     const id = context.params.id;
     const { adminCm } = await req.json();
+    if (!adminCm)
+      return NextResponse.json(
+        { message: "نمیتوانید بدون جواب دادن منتشر کنید" },
+        { status: 404 },
+      );
     const cms = await Comments.findOne({ _id: id });
     cms.published = true;
     cms.adminAnswer = adminCm;

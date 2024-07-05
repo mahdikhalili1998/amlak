@@ -6,8 +6,9 @@ import { HiBuildingOffice } from "react-icons/hi2";
 import { MdOutlineApartment } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillDollarCircle } from "react-icons/ai";
-import { MdSubtitles } from "react-icons/md";
+import { GrGallery } from "react-icons/gr";
 import Image from "next/image";
+import { getFirstWord } from "@/funcs/helper";
 
 function AdCard({ data }) {
   const { title, location, price, category, picUrl } = data;
@@ -21,11 +22,17 @@ function AdCard({ data }) {
 
   return (
     <div className="flex flex-col items-center gap-4 py-2">
-      <div className="flex flex-col items-start gap-2 text-sm font-medium">
+      <div className="flex flex-col items-start gap-4 text-sm font-medium">
         {firstPic ? (
-          <Image src={firstPic} alt={title} width={160} height={160} />
+          <Image
+            src={firstPic}
+            className="rounded-xl"
+            alt={title}
+            width={190}
+            height={190}
+          />
         ) : (
-          <p>no pic</p>
+          <GrGallery className="mx-auto w-max m-5 text-4xl" />
         )}
         <span className="flex items-center gap-2">
           <span className="text-lg text-cyan-600">{icons[category]}</span>
@@ -33,7 +40,7 @@ function AdCard({ data }) {
         </span>
         <span className="flex items-center gap-2">
           <FaLocationDot className="text-cyan-700" />
-          {location}
+          {getFirstWord(location)}
         </span>
         <span className="flex items-center gap-2">
           <AiFillDollarCircle className="text-base text-cyan-700" />

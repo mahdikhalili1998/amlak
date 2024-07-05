@@ -10,8 +10,8 @@ async function Commentspage() {
     <>
       <div className="flex flex-col items-center justify-center gap-10">
         {!cm.length ? (
-          <h2 className="font-semibold text-red-500">
-            هیچ سوالی از سمت کاربران نیست
+          <h2 className="flex justify-center text-sm font-semibold text-red-500">
+            سوال تایید نشده ای موجود نیست !
           </h2>
         ) : (
           cm.map((item) => (

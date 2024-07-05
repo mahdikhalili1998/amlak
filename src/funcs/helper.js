@@ -12,5 +12,20 @@ function maskEmail(email) {
   return `${maskedLocalPart}@${domainPart}`;
 }
 
-export { deleteHandlerd, maskEmail };
- 
+function getFirstWord(str) {
+  // حذف فضاهای اضافی از ابتدا و انتهای رشته
+  str = str.trim();
+
+  // تقسیم رشته بر اساس فضای خالی
+  const words = str.split(" ");
+
+  // اگر رشته شامل بیش از یک کلمه باشد
+  if (words.length > 1) {
+    return `${words[0]} ،  ...`;
+  } else {
+    // اگر رشته فقط شامل یک کلمه باشد
+    return words[0];
+  }
+}
+
+export { deleteHandlerd, maskEmail, getFirstWord };

@@ -6,9 +6,14 @@ import { FaUserCircle } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 function Header({ menu, setMenu }) {
   const { status } = useSession();
+  const router = useRouter();
+  const prfoHandler = () => {
+    router.refresh("/dashbord");
+  };
 
   return (
     <div className="relative flex items-center justify-between rounded-xl bg-blue-600 px-3 py-2 text-white">
@@ -60,6 +65,7 @@ function Header({ menu, setMenu }) {
         </Link>
       ) : (
         <Link
+          onClick={prfoHandler}
           href="/sign-up"
           className="flex items-center gap-3 rounded-lg bg-white px-2 py-1 text-blue-700"
         >

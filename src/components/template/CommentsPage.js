@@ -51,8 +51,9 @@ function CommentsPage({ data }) {
         />
         <div className="flex items-center justify-center gap-5">
           <button
-            className="rounded-lg bg-green-500 px-2 py-1 text-xs font-medium text-white"
+            className="rounded-lg bg-green-500 px-2 py-1 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-35"
             onClick={answerHandler}
+            disabled={!adminCm}
           >
             منتشر
           </button>
