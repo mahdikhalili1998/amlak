@@ -13,7 +13,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import CommentDetail from "../module/CommentDetail";
 import UserAmlak from "@/models/user";
 import { category, icons } from "@/constant/data";
-import Swipper from "./Swipper";
+import Slider from "../module/Slider";
 
 async function AdDetailsPage({ id }) {
   await ConnectDB();
@@ -28,11 +28,11 @@ async function AdDetailsPage({ id }) {
     <div>
       {ad.map((item) => (
         <div
-          className="items-center justify-between space-y-8 px-5 md:flex md:items-start"
+          className="items-center justify-around md:gap-20 space-y-8 px-5 md:flex md:items-start"
           key={item._id}
         >
-          <div className="space-y-7 px-1">
-          <Swipper ad={JSON.parse(JSON.stringify(ad))} />
+          <div className="flex flex-col space-y-7 px-1">
+            <Slider ad={JSON.parse(JSON.stringify(ad))} />
             <div className="flex flex-col items-center justify-center gap-2">
               <h2 className="text-lg font-semibold text-blue-600">
                 {item.title}

@@ -7,10 +7,11 @@ import { MdOutlineApartment } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { MdSubtitles } from "react-icons/md";
+import Image from "next/image";
 
 function AdCard({ data }) {
-  const { title, location, price, category } = data;
-
+  const { title, location, price, category, picUrl } = data;
+  const [firstPic] = picUrl;
   const icons = {
     villa: <FaHome />,
     department: <MdOutlineApartment />,
@@ -19,11 +20,15 @@ function AdCard({ data }) {
   };
 
   return (
-    <div className="flex flex-col gap-4 py-2 items-center  ">
-      <span className="text-3xl text-cyan-600">{icons[category]}</span>
-      <div className="flex flex-col items-start gap-2 text-sm">
+    <div className="flex flex-col items-center gap-4 py-2">
+      <div className="flex flex-col items-start gap-2 text-sm font-medium">
+        {firstPic ? (
+          <Image src={firstPic} alt={title} width={160} height={160} />
+        ) : (
+          <p>no pic</p>
+        )}
         <span className="flex items-center gap-2">
-          <MdSubtitles className="text-cyan-700" />
+          <span className="text-lg text-cyan-600">{icons[category]}</span>
           {title}
         </span>
         <span className="flex items-center gap-2">

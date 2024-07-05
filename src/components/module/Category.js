@@ -22,7 +22,7 @@ function Category() {
   const closeHandler = () => {
     setClick(false);
   };
-  
+
   return (
     <>
       <div className="450:hidden">
@@ -58,7 +58,7 @@ function Category() {
           </div>
         )}
       </div>
-      <div className="450:flex 450:justify-center 450:items-center 450:gap-5 450:mb-[2rem] hidden lg:hidden">
+      <div className="hidden 450:mb-[2rem] 450:flex 450:items-center 450:justify-center 450:gap-5 lg:hidden">
         {queries.map((item, index) => (
           <Link
             className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white"
@@ -79,7 +79,7 @@ function Category() {
           X
         </Link>
       </div>
-      <div className="hidden lg:flex lg:flex-col lg:items-center lg:rounded-lg lg:px-10 lg:py-3 lg:shadow-xl lg:shadow-blue-300">
+      <div className="hidden lg:flex lg:h-max lg:flex-col lg:items-center lg:rounded-lg lg:px-10 lg:py-3 lg:shadow-xl lg:shadow-blue-300">
         <h1 className="flex items-center gap-2 text-lg font-semibold text-blue-700">
           دسته بندی
           <FiFilter />
