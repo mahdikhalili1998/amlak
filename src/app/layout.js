@@ -1,5 +1,5 @@
 import "./globals.css";
-import "../iransans.css";
+// import "../iransans.css";
 import Layout from "@/components/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import { ThemeProvider } from "@/components/theme/Dark";
