@@ -31,7 +31,7 @@ function SelectedPic({ adInfo }) {
   return (
     <div className={`space-y-5`}>
       {adInfo.length ? <h2>عکس های انتخاب شده :</h2> : null}
-      <div className="flex flex-col items-center justify-center rounded-lg py-3 shadow-xl shadow-blue-300 450:grid sm:grid-cols-4 450:grid-cols-3 450:gap-1 450:gap-y-3">
+      <div className="flex flex-col items-center justify-center rounded-lg py-3 shadow-xl shadow-blue-300 dark:shadow-cyan-700 450:grid 450:grid-cols-3 450:gap-1 450:gap-y-3 sm:grid-cols-4">
         {adInfo.map((item) => (
           <div
             className="flex flex-col items-center justify-center 450:px-3"

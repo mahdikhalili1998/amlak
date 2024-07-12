@@ -74,13 +74,13 @@ const Slider = ({ ad }) => {
       {picUrl.length > 0 && (
         <div className="mt-4">
           <button
-            className="mx-2 rounded bg-blue-500 px-2 py-1 text-white"
+            className="mx-2 rounded bg-blue-500 px-2 py-1 text-white dark:bg-cyan-500"
             onClick={nextSlide}
           >
             <IoIosArrowForward />
           </button>
           <button
-            className="mx-2 rounded bg-blue-500 px-2 py-1 text-white"
+            className="mx-2 rounded bg-blue-500 px-2 py-1 text-white dark:bg-cyan-500"
             onClick={prevSlide}
           >
             <IoIosArrowBack />

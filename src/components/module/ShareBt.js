@@ -25,9 +25,10 @@ function ShareBt() {
       <CopyToClipboard text={url}>
         <div
           onClick={(e) => setClick(true)}
-          className="mx-auto flex w-max items-center justify-center gap-7 rounded-xl px-8 py-5 font-medium shadow-xl shadow-blue-300"
+          className="mx-auto flex w-max items-center justify-center gap-7 rounded-xl px-8 py-5 font-medium shadow-xl shadow-blue-300 dark:text-white dark:shadow-cyan-800"
         >
-          اشتراک گذاری <IoShareSocialSharp className="text-2xl text-blue-600" />
+          اشتراک گذاری{" "}
+          <IoShareSocialSharp className="text-2xl text-blue-600 dark:text-cyan-400" />
         </div>
       </CopyToClipboard>
       <ToastContainer />

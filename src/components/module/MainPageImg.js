@@ -10,8 +10,8 @@ function MainPageImg({ name, title }) {
     >
       <div className="flex items-center gap-3">
         {" "}
-        <FaChevronRight className="md:hidden" />
-        <span className="text-sm font-semibold">{title}</span>
+        <FaChevronRight className="dark:text-white md:hidden" />
+        <span className="text-sm font-semibold dark:text-white">{title}</span>
       </div>
       <Image
         src={`/images/${name}.png`}
@@ -19,7 +19,7 @@ function MainPageImg({ name, title }) {
         width={240}
         height={144}
         priority={true}
-        className="size-[5rem] rounded-full md:size-[7rem]"
+        className="size-[5rem] rounded-full dark:border-4 dark:border-cyan-500 md:size-[7rem]"
       />
     </Link>
   );

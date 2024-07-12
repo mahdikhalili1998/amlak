@@ -18,7 +18,7 @@ async function DashbordSidebar({ children }) {
 
   return (
     <div className="flex flex-col gap-3 md:grid md:grid-cols-sebyek">
-      <div className="h-max space-y-4 justify-self-start rounded-lg px-4 py-4 md:flex md:flex-col md:shadow-xl md:shadow-blue-300">
+      <div className="h-max space-y-4 justify-self-start rounded-lg px-4 py-4 md:flex md:flex-col md:shadow-xl md:shadow-blue-300 md:dark:shadow-cyan-500">
         <div className="flex flex-col items-center gap-2">
           <Profile email={user?.email} role={user.role} />
         </div>

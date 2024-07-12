@@ -30,9 +30,9 @@ function CommentsPage({ data }) {
 
   return (
     <>
-      <div className="flex flex-col gap-3 rounded-lg p-5 shadow-xl shadow-blue-300">
+      <div className="flex flex-col gap-3 rounded-lg p-5 shadow-xl shadow-blue-300 dark:shadow-cyan-800">
         <div className="flex flex-col gap-3">
-          <span className="flex items-center gap-1 text-center italic text-gray-700">
+          <span className="flex items-center gap-1 text-center italic text-gray-700 dark:text-gray-500">
             {email} <MdQuickreply />
           </span>
           <p className="rounded-lg bg-green-300 p-3 text-sm font-medium text-green-950">

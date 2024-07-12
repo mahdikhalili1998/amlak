@@ -9,7 +9,7 @@ function DatePickers({ adInfo, setAdInfo }) {
   };
   return (
     <div className="flex flex-col items-center gap-3">
-      <h2>تاریخ ساخت : </h2>
+      <h2 className="dark:text-white">تاریخ ساخت : </h2>
       <DatePicker
         animations={[size()]}
         calendar={persian}

@@ -7,6 +7,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 function AdCardBt({ data }) {
+  // console.log(data);
   const router = useRouter();
   const editHandler = () => {
     router.push(`/dashbord/my-ads/${data._id}`);
@@ -22,14 +23,18 @@ function AdCardBt({ data }) {
   };
   return (
     <div className="flex items-center justify-between gap-5 text-xl">
-      <Link href="/">
-        <FaArrowRightLong className="text-cyan-700" />
+      <Link href={`/resedentionals/${data._id}`}>
+        <FaArrowRightLong className="text-cyan-700 dark:text-white" />
       </Link>
+
       <button onClick={editHandler}>
-        <FaEdit className="text-blue-700" />
+        <FaEdit className="text-blue-700 dark:text-cyan-400" />
       </button>
       <button>
-        <RiDeleteBin5Fill onClick={deleteHandler} className="text-red-700" />
+        <RiDeleteBin5Fill
+          onClick={deleteHandler}
+          className="text-red-700 dark:text-red-400"
+        />
       </button>
     </div>
   );

@@ -5,11 +5,15 @@ import { useState } from "react";
 
 function Layout({ children }) {
   const [menu, setMenu] = useState(false);
+  const [isSun, setIsSun] = useState(true);
+  // console.log(isSun);
 
   return (
     <>
-      <Header menu={menu} setMenu={setMenu} />
-      <div className={`mx-1 my-[2rem] ${!menu ? null : "opacity-10 pointer-events-none"}`}>
+      <Header menu={menu} isSun={isSun} setIsSun={setIsSun} setMenu={setMenu} />
+      <div
+        className={`mx-1 py-[2rem] dark:bg-[#0a0228] ${!menu ? null : "pointer-events-none opacity-10"}`}
+      >
         {children}
       </div>
       <Footer />

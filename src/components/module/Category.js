@@ -7,6 +7,7 @@ import { FaCircle } from "react-icons/fa";
 
 function Category() {
   const [click, setClick] = useState(false);
+  console.log(click);
 
   const queries = [
     { villa: "ویلا" },

@@ -8,10 +8,10 @@ function Profile({ email, role }) {
     <div className="transition-all duration-700">
       <div
         onClick={(e) => setShowSignoutBt((showSingoutBt) => !showSingoutBt)}
-        className="flex cursor-pointer flex-col items-center gap-1"
+        className="flex cursor-pointer flex-col items-center gap-2"
       >
-        <FaUserCircle className="text-[3rem] text-blue-600" />
-        <span className="pb-1">{email}</span>
+        <FaUserCircle className="rounded-full text-[3rem] text-blue-600 dark:border-2 dark:border-cyan-400" />
+        <span className="pb-1 dark:text-white">{email}</span>
         {role === "ADMIN" ? (
           <span className="-mt-2 mb-3 rounded-lg bg-red-200 px-2 py-1 text-xs font-medium text-red-800">
             ادمین

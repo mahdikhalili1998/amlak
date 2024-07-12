@@ -7,8 +7,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import DarkBt from "../template/DarkBt";
 
-function Header({ menu, setMenu }) {
+function Header({ menu, setMenu, isSun, setIsSun }) {
   const { status } = useSession();
   const router = useRouter();
   const prfoHandler = () => {
@@ -21,6 +22,7 @@ function Header({ menu, setMenu }) {
       <div className="hidden items-center gap-7 font-medium text-white sm:flex">
         <Link href="/">صفحه اصلی</Link>
         <Link href="/resedentionals"> آگهی ها</Link>
+        <DarkBt isSun={isSun} setIsSun={setIsSun} />
       </div>
       <>
         <div className="sm:hidden"></div>
@@ -43,6 +45,7 @@ function Header({ menu, setMenu }) {
               {" "}
               آگهی ها
             </Link>
+            <DarkBt isSun={isSun} setIsSun={setIsSun} />
           </div>
           <div
             className="flex items-center gap-2 rounded-xl bg-red-500 px-2 py-[2px] text-white"

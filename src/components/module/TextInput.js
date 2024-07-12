@@ -9,13 +9,13 @@ function TextInput({
   textArea = false,
 }) {
   return (
-    <div className="flex flex-col  items-center gap-3">
-      <label className="text-sm font-semibold" htmlFor={name}>
+    <div className="flex flex-col items-center gap-3">
+      <label className="text-sm font-semibold dark:text-white" htmlFor={name}>
         {label} :
       </label>
       {textArea ? (
         <textarea
-          className="rounded-lg border-2 border-dotted border-blue-600 px-3 py-2 text-center focus:outline-none focus:outline-dotted"
+          className="rounded-lg border-2 border-dotted border-blue-600 px-3 py-2 text-center focus:outline-none focus:outline-dotted dark:border-cyan-500"
           id={name}
           type={type}
           value={adInfo[name]}
@@ -24,7 +24,7 @@ function TextInput({
         />
       ) : (
         <input
-          className="rounded-lg border-2 border-dotted border-blue-600 px-3 py-2 text-center focus:outline-none focus:outline-dotted"
+          className="rounded-lg border-2 border-dotted border-blue-600 px-3 py-2 text-center focus:outline-none focus:outline-dotted dark:border-2 dark:border-cyan-600"
           id={name}
           type={type}
           value={adInfo[name]}

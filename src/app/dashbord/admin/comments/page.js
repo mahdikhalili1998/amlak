@@ -10,7 +10,7 @@ async function Commentspage() {
     <>
       <div className="flex flex-col items-center justify-center gap-10">
         {!cm.length ? (
-          <h2 className="flex justify-center text-sm font-semibold text-red-500">
+          <h2 className="flex justify-center text-sm font-semibold text-red-500 dark:text-red-400">
             سوال تایید نشده ای موجود نیست !
           </h2>
         ) : (

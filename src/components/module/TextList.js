@@ -20,7 +20,7 @@ function TextList({ name, adInfo, setAdInfo }) {
         {!rulesValue ? (
           <button
             disabled
-            className="cursor-not-allowed rounded-lg bg-blue-600/35 px-2 py-1 text-xs text-white"
+            className="cursor-not-allowed rounded-lg bg-blue-600/35 px-2 py-1 text-xs text-white dark:bg-cyan-500 dark:text-white"
             onClick={addHandler}
           >
             اضافه کردن

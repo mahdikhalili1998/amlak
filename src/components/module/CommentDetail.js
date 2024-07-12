@@ -9,7 +9,7 @@ async function CommentDetail({ email, id }) {
   return (
     <div className="space-y-6">
       {cms.length ? (
-        <h2 className="mx-auto w-max border-b-2 border-blue-600 px-2 py-1 text-sm font-medium text-blue-600">
+        <h2 className="mx-auto w-max border-b-2 border-blue-600 px-2 py-1 text-sm font-medium text-blue-600 dark:border-white dark:text-white">
           سوالات اخیر
         </h2>
       ) : null}
@@ -20,10 +20,10 @@ async function CommentDetail({ email, id }) {
               {item.published ? (
                 <div
                   key={item._id}
-                  className="mb-10 rounded-xl px-1 py-4 shadow-xl shadow-blue-300"
+                  className="mb-10 rounded-xl px-1 py-4 shadow-xl shadow-blue-300 dark:shadow-cyan-800"
                 >
                   <div className="flex items-center justify-center gap-2 text-xs">
-                    <span className="mt-[3px] font-semibold">
+                    <span className="mt-[3px] font-semibold dark:text-white">
                       {maskEmail(item.email)}
                     </span>
                     <span className="rounded-[100%] border-[3px] border-cyan-500 bg-gray-600 px-2 py-1 text-xs text-white">

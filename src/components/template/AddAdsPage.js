@@ -141,13 +141,12 @@ function AddAdsPage({ data }) {
   // console.log(adInfo);
   return (
     <div className={`text-sm`}>
-      <h1 className="mb-10 w-full rounded-lg bg-blue-200 py-2 text-center text-lg font-semibold text-blue-800">
+      <h1 className="mb-10 w-full rounded-lg bg-blue-200 py-2 text-center text-lg font-semibold text-blue-800 dark:bg-cyan-500 dark:text-white">
         {data ? "ویرایش آگهی" : "ثبت آگهی"}
       </h1>
 
       <div className="flex flex-col items-center justify-center gap-10">
         <Upload adInfo={adInfo} setAdInfo={setAdInfo} />
-
         <TextInput
           type="text"
           label="عنوان"
@@ -193,7 +192,9 @@ function AddAdsPage({ data }) {
         />
 
         <div className="space-y-3">
-          <h1 className="text-center text-base font-semibold">دسته بندی : </h1>
+          <h1 className="text-center text-base font-semibold dark:text-white">
+            دسته بندی :{" "}
+          </h1>
           <div className="grid grid-cols-2 gap-2">
             <RadioList
               name="villa"
@@ -222,7 +223,7 @@ function AddAdsPage({ data }) {
           </div>
         </div>
         <div className="space-y-4 font-medium">
-          <h2 className="text-center">قوانین ساختمان</h2>
+          <h2 className="text-center dark:text-white">قوانین ساختمان</h2>
           {adInfo.rules.length
             ? adInfo.rules?.map((i, index) => (
                 <ul className="text-[14px]/3 font-semibold" key={index}>
@@ -247,7 +248,7 @@ function AddAdsPage({ data }) {
                       <span>
                         <FaRegEdit
                           onClick={(e) => editHandler(index, "rules")}
-                          className="text-xl text-blue-800"
+                          className="text-xl text-blue-800 dark:text-white"
                         />
                       </span>
                       <span>
@@ -255,7 +256,7 @@ function AddAdsPage({ data }) {
                           onClick={(e) =>
                             deleteHandler(adInfo.rules, index, "rules")
                           }
-                          className="text-xl text-red-800"
+                          className="text-xl text-red-800 dark:text-rose-500"
                         />
                       </span>
                     </li>
@@ -271,7 +272,7 @@ function AddAdsPage({ data }) {
           />
         </div>
         <div className="space-y-4 font-medium">
-          <h2 className="text-center">امکانات</h2>
+          <h2 className="text-center dark:text-white">امکانات</h2>
           {adInfo.options.length
             ? adInfo.options?.map((i, index) => (
                 <ul className="text-[14px]/3 font-semibold" key={index}>
@@ -296,7 +297,7 @@ function AddAdsPage({ data }) {
                       <span>
                         <FaRegEdit
                           onClick={(e) => editHandler(index, "options")}
-                          className="text-xl text-blue-900"
+                          className="text-xl text-blue-900 dark:text-white"
                         />
                       </span>
                       <span>
@@ -304,7 +305,7 @@ function AddAdsPage({ data }) {
                           onClick={(e) =>
                             deleteHandler(adInfo.options, index, "options")
                           }
-                          className="text-xl text-red-800"
+                          className="text-xl text-red-800 dark:text-rose-500"
                         />
                       </span>
                     </li>

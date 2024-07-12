@@ -71,10 +71,16 @@ export default function Upload({ adInfo, setAdInfo }) {
     <div className="flex flex-col items-center justify-center gap-5">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p className="rounded-xl border-2 border-dashed border-blue-600 px-10 py-16">
+        <p className="rounded-xl border-2 border-dashed border-blue-600 px-10 py-16 dark:text-white">
           فایل را اینجا بکشید یا کلیک کنید تا آپلود شود.
         </p>
       </div>
+      <h3 className="flex items-center gap-1 text-xs font-medium dark:text-white">
+        <span className="mt-[2px] justify-center text-lg font-medium text-red-600">
+          *
+        </span>{" "}
+        اولین عکس به عنوان کاور استفاده میشود
+      </h3>
       {previewUrl && (
         <div className="relative h-64 w-64">
           <Cropper
