@@ -136,13 +136,6 @@ function SignupPage() {
               ثبت نام
             </button>
           )}
-
-          {/* <p className="px-3 text-sm font-medium">
-            حساب کاربری دارید ؟{" "}
-            <Link className="text-blue-600" href="/sign-in">
-              وارد حساب خود شوید{" "}
-            </Link>
-          </p> */}
         </div>
         <ToastContainer />
       </form>
