@@ -20,7 +20,7 @@ export const authOptions = {
         if (!user) throw new Error("ابتدا یک حساب برای خود بسازید");
         const isValid = await verifyPassword(password, user.password);
         if (!isValid) throw new Error("رمز عبور و یا نام کاربری اشتباه است ");
-        console.log(email);
+        // console.log(email);
         return { email };
       },
     }),

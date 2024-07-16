@@ -69,7 +69,7 @@ function Header({ menu, setMenu, isSun, setIsSun }) {
       ) : (
         <Link
           onClick={prfoHandler}
-          href="/sign-up"
+          href="/send-otp"
           className="flex items-center gap-3 rounded-lg bg-white px-2 py-1 text-blue-700"
         >
           <MdOutlineLogin style={{ fontSize: "1.2rem" }} />

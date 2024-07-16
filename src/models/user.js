@@ -5,6 +5,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  phone: { type: String, require: true },
   role: { type: String, default: "USER" },
   name: { type: String, require: false },
   password: {

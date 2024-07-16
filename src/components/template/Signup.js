@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../module/Input";
 import Link from "next/link";
 import { Flip, Slide, toast } from "react-toastify";
@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { ThreeDots } from "react-loader-spinner";
-
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -16,10 +15,17 @@ function SignupPage() {
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
+    phone: "",
     repassword: "",
   });
+
+  useEffect(() => {
+    const phoneNumber = localStorage.getItem("phoneNumber");
+    setUserInfo({ ...userInfo, phone: phoneNumber });
+  }, []);
+
   const [loading, setLoading] = useState(false);
-  const { email, password, repassword } = userInfo;
+  const { email, password, repassword, phone } = userInfo;
   const router = useRouter();
 
   const changeHandler = (e) => {
@@ -44,7 +50,7 @@ function SignupPage() {
     }
     setLoading(true);
     await axios
-      .post("/api/auth/signup", { email, password })
+      .post("/api/auth/signup", { email, password, phone })
       .then((res) => {
         {
           res.data.status === 201 ? router.push("/sign-in") : null;
@@ -88,6 +94,14 @@ function SignupPage() {
             label="ایمیل"
           />
           <Input
+            name="phone"
+            value={userInfo.phone}
+            type="string"
+            changeHandler={changeHandler}
+            label="شماره همراه :"
+            readonly="readonly"
+          />
+          <Input
             name="password"
             value={userInfo.password}
             type="password"
@@ -123,12 +137,12 @@ function SignupPage() {
             </button>
           )}
 
-          <p className="px-3 text-sm font-medium">
+          {/* <p className="px-3 text-sm font-medium">
             حساب کاربری دارید ؟{" "}
             <Link className="text-blue-600" href="/sign-in">
               وارد حساب خود شوید{" "}
             </Link>
-          </p>
+          </p> */}
         </div>
         <ToastContainer />
       </form>

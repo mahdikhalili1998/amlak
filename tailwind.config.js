@@ -24,11 +24,13 @@ module.exports = {
         sebyek: "1fr 3fr",
       },
       screens: {
+        285: "285px",
         tabletz: "350px",
         300: "300px",
         360: "360px",
         420: "420px",
         450: "450px",
+        505: "505px",
         650: "650px",
         800: "800px",
       },

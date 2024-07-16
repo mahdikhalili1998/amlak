@@ -27,5 +27,12 @@ function getFirstWord(str) {
     return words[0];
   }
 }
+function removeQuotes(str) {
+  if (str.startsWith('"') && str.endsWith('"')) {
+    return str.slice(1, -1);
+  }
 
-export { deleteHandlerd, maskEmail, getFirstWord };
+  return str;
+}
+
+export { deleteHandlerd, maskEmail, getFirstWord, removeQuotes };

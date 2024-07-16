@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     await ConnectDB();
-    const { email, password } = await req.json();
+    const { email, password, phone } = await req.json();
     if (!email || !password) {
       return NextResponse.json({
         error: "اطلاعات درست را وارد کنید",
@@ -22,7 +22,8 @@ export async function POST(req) {
     }
 
     const newUser = await UserAmlak.create({
-      email: email,
+      email,
+      phone,
       password: hashPass,
     });
 
