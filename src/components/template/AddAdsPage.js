@@ -78,7 +78,7 @@ function AddAdsPage({ data }) {
   };
 
   const editesHandler = async (id) => {
-    console.log(id);
+    // console.log(id);
     setLoading(true);
     await axios
       .patch("/api/add-ad", { adInfo, id })
