@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 import Image from "next/image";
-import "react-toastify/dist/ReactToastify.css";
 import { Flip, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import { useRouter } from "next/navigation";
 
@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 const OTPPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otpCode, setOtpCode] = useState("");
-  console.log(otpCode);
+
   const [verificationStatus, setVerificationStatus] = useState("");
   const [userCode, setUserCode] = useState("");
   const [goToPass, setGoToPass] = useState(false);

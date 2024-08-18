@@ -18,6 +18,7 @@ import Slider from "../module/Slider";
 async function AdDetailsPage({ id }) {
   await ConnectDB();
   const session = await getServerSession(authOptions);
+  console.log(session);
   const ad = await AD.find({ _id: id });
   const [ads] = await AD.find({ _id: id });
   const [user] = await UserAmlak.find({ _id: ads.userId });
